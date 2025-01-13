@@ -237,18 +237,6 @@
                 let initialMysticWons = 0;
                 let totalMysticWons = 0;
 
-                document.getElementById('updateGraph').addEventListener('click', () => {
-                    const mysticWons = parseFloat(document.getElementById('mysticWons').value) || 0;
-                    const topics = document.getElementById('topics').value || 'Unknown';
-                    const timestamp = new Date().toISOString();
-
-                    push(dbRef, { mysticWons, topics, timestamp });
-
-                    totalMysticWons += mysticWons;
-                    document.getElementById('totalMysticWons').innerText = `Total Mystic Wons: ${totalMysticWons}`;
-
-                    fetchData('day');
-                });
 
                 function fetchData(period) {
                     const q = query(dbRef, orderByChild('timestamp'));
